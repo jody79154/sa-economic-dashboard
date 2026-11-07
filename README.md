@@ -8,7 +8,7 @@ A learning and portfolio project: build a reproducible pipeline that collects re
 - Which observations are missing, revised or not directly comparable?
 
 ## Current status
-Environment preparation only. No dataset has been downloaded, no analysis has been completed, and no dashboard has been deployed.
+The first real World Bank unemployment series has been ingested and loaded into PostgreSQL. Five SQL analyses ran successfully on the server. See [initial findings](docs/findings.md). No dashboard has been deployed.
 
 Reported completed on the Ubuntu server:
 - Docker and Git installed.
@@ -16,7 +16,7 @@ Reported completed on the Ubuntu server:
 - requests and pandas installed.
 - Earlier Ollama models removed and the Ollama container stopped.
 
-Planned: API ingestion → raw snapshots → validation and cleaning → PostgreSQL → SQL analysis → Streamlit.
+Implemented and run: API ingestion → raw snapshots → validation and cleaning → PostgreSQL → SQL analysis. Next: Streamlit.
 Weekly refreshes, logging and backups will follow after the manual pipeline works.
 
 ## Repository map
@@ -32,7 +32,7 @@ Weekly refreshes, logging and backups will follow after the manual pipeline work
 | requirements.txt | Initial Python dependencies |
 
 ## Getting started
-Follow [the setup guide](docs/setup.md). The initial dependencies prepare the environment; there is no application command yet.
+Follow [the setup guide](docs/setup.md), [first dataset guide](docs/first-dataset.md), and [database guide](docs/database.md). Read [the findings](docs/findings.md) after running sql/002_analysis.sql.
 
 ## Data integrity
 Use real World Bank observations. Keep missing values missing, retain raw responses and retrieval timestamps, document units and estimation methods, and never substitute invented numbers. Historical observations may be revised. Correlation alone does not establish causation.
@@ -44,10 +44,10 @@ Do not commit passwords, SSH keys, tokens, database dumps or environment files. 
 ## Milestones
 - [x] Prepare server and Python environment (user-reported)
 - [x] Establish repository documentation
-- [ ] Retrieve and validate one unemployment series
+- [x] Retrieve and validate one unemployment series
 - [ ] Add inflation and GDP growth
-- [ ] Create PostgreSQL schema and repeatable load
-- [ ] Write five analytical SQL queries
+- [x] Create PostgreSQL schema and repeatable load (rerun verification pending)
+- [x] Write and execute five analytical SQL queries
 - [ ] Build a dashboard with source notes and filters
 - [ ] Schedule refreshes and verify backups
 - [ ] Add findings, screenshots and a demonstration
