@@ -34,3 +34,12 @@ Server execution succeeded, based on terminal output supplied by the project own
 These are historical modeled estimates from this retrieval, not live measurements or national survey estimates. Missing observations were preserved, not replaced with zeros.
 
 Next: inspect year coverage and missing years, calculate year-over-year percentage-point changes, then add PostgreSQL storage. Do not infer why values are missing without checking source metadata.
+
+## Coverage and first interpretation
+User-supplied inspection output confirms:
+- API year range: 1960–2025.
+- Available observations: every year from 1991 through 2025 (35 values).
+- Missing observations: 1960–1990 inclusive (31 years).
+- There are no internal gaps in the available series, so consecutive differences for this retrieval represent annual percentage-point changes.
+- Unemployment fell from 34.007% in 2021 to 32.098% in 2023, then rose to 32.391% in 2025.
+- This descriptive finding does not establish causes. Missing earlier years remain missing; they are not zero unemployment.
