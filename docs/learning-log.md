@@ -43,3 +43,6 @@ User-supplied inspection output confirms:
 - There are no internal gaps in the available series, so consecutive differences for this retrieval represent annual percentage-point changes.
 - Unemployment fell from 34.007% in 2021 to 32.098% in 2023, then rose to 32.391% in 2025.
 - This descriptive finding does not establish causes. Missing earlier years remain missing; they are not zero unemployment.
+
+## PostgreSQL import completed
+User-supplied output confirms PostgreSQL 18.6 on Ubuntu 26.04/aarch64, successful access to sa_economics as analytics_user, COPY 66, INSERT 0 66 and COMMIT. SQL counts matched the CSV: 66 rows, 35 available values, 31 NULL values, 1960–2025. Repeat-import behavior has not yet been verified on the server. Next: execute sql/002_analysis.sql and interpret its five query results.
