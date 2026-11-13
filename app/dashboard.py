@@ -54,11 +54,14 @@ delta = None
 if not previous.empty and pd.notna(previous.iloc[0]):
     delta = f"{float(latest.unemployment_pct - previous.iloc[0]):+.3f} pp vs prior year"
 
-a, b, c = st.columns(3)
+a, b, c, d = st.columns(4)
 a.metric(f"Latest selected year: {int(latest.year)}", f"{latest.unemployment_pct:.3f}%", delta=delta, delta_color="inverse")
 peak = available.loc[available.unemployment_pct.idxmax()]
 b.metric("Highest in selected range", f"{peak.unemployment_pct:.3f}%", f"Year {int(peak.year)}", delta_color="off")
 c.metric("Available annual values", len(available))
+average_rate = available["unemployment_pct"].mean()
+d.metric("Average annual rate", f"{average_rate:.3f}%")
+st.caption("Average: unweighted mean of available annual rates within the selected year range.")
 st.subheader("Annual unemployment rate")
 st.line_chart(selected.set_index("year")[["unemployment_pct"]], y_label="Unemployment (%)", x_label="Year")
 
