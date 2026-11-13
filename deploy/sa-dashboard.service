@@ -1,0 +1,22 @@
+[Unit]
+Description=South African Economic Dashboard
+After=network.target postgresql.service
+Wants=postgresql.service
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/projects/sa-economic-dashboard
+ExecStart=/home/ubuntu/projects/sa-economic-dashboard/.venv/bin/python -m streamlit run app/dashboard.py --server.address 127.0.0.1 --server.port 8502 --server.headless true
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
